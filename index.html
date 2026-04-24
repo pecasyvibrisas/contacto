@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pecas y Vibrisas · Sesiones fotográficas</title>
+<style>
+@font-face { font-family: 'NewBlack'; src: url('NewBlackTypeface-UltraLight.ttf'); font-weight: 100; }
+@font-face { font-family: 'NewBlack'; src: url('NewBlackTypeface-Light.ttf'); font-weight: 300; }
+@font-face { font-family: 'NewBlack'; src: url('NewBlackTypeface-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'NewBlack'; src: url('NewBlackTypeface-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: 'NewBlack'; src: url('NewBlackTypeface-SemiBold.ttf'); font-weight: 600; }
+@font-face { font-family: 'NewBlack'; src: url('NewBlackTypeface-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'NewBlack'; src: url('NewBlackTypeface-ExtraBold.ttf'); font-weight: 800; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --negro: #000000;
+  --naranja: #F4A26C;
+  --verde: #D4DB73;
+  --lila: #C9A8D4;
+  --blanco: #FFFFFF;
+  --gris-claro: #F5F5F2;
+  --gris-texto: #444440;
+  --radius: 12px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'NewBlack', sans-serif;
+  font-weight: 400;
+  background: var(--blanco);
+  color: var(--negro);
+  line-height: 1.6;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+  position: relative;
+}
+
+.hero-logo {
+  width: 200px;
+  margin: 0 auto 2.5rem;
+  display: block;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--naranja);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(36px, 8vw, 72px);
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.hero-title span { color: var(--naranja); }
+
+.hero-sub {
+  font-size: clamp(15px, 2.5vw, 18px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: var(--naranja);
+  color: var(--negro);
+  font-family: 'NewBlack', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 99px;
+  transition: opacity 0.15s;
+}
+.hero-cta:hover { opacity: 0.85; }
+
+/* ── FOTO HERO placeholder ── */
+.foto-hero {
+  width: 100%;
+  max-width: 700px;
+  margin: 3rem auto 0;
+  aspect-ratio: 4/3;
+  background: #1a1a1a;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 300;
+  color: #555;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── SECCIÓN PAULA ── */
+.seccion-paula {
+  padding: 5rem 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.foto-paula {
+  aspect-ratio: 3/4;
+  background: var(--verde);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 300;
+  color: #666;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.paula-texto .tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--naranja);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.paula-texto h2 {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.paula-texto p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--gris-texto);
+  line-height: 1.75;
+}
+
+/* ── CÓMO TRABAJO ── */
+.como-trabajo {
+  background: var(--naranja);
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.como-trabajo h2 {
+  font-size: clamp(28px, 6vw, 52px);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.como-trabajo .subtitulo {
+  font-size: clamp(13px, 2vw, 16px);
+  font-weight: 300;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+.como-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.como-item {
+  background: var(--blanco);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.como-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--naranja);
+  margin-bottom: 0.5rem;
+}
+
+.como-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.como-item p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gris-texto);
+  line-height: 1.65;
+}
+
+/* foto trabajo */
+.foto-trabajo {
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 16/9;
+  background: #1a1a1a;
+  border-radius: var(--radius);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 300;
+  color: #555;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── SESIONES ── */
+.sesiones {
+  padding: 5rem 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.sesiones > .tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--naranja);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.sesiones > h2 {
+  font-size: clamp(28px, 6vw, 52px);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+}
+
+.sesiones > .intro {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--gris-texto);
+  margin-bottom: 3rem;
+  max-width: 500px;
+}
+
+.sesion-card {
+  border: 1.5px solid #e8e8e4;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.sesion-foto {
+  width: 100%;
+  aspect-ratio: 16/8;
+  background: var(--gris-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 300;
+  color: #888;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sesion-foto.naranja { background: #fde8d6; }
+.sesion-foto.verde { background: #f0f2c8; }
+.sesion-foto.lila { background: #ecddf2; }
+
+.sesion-body { padding: 1.5rem; }
+
+.sesion-nombre {
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.sesion-tagline {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gris-texto);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.sesion-items {
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+
+.sesion-items li {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gris-texto);
+  padding: 5px 0;
+  border-bottom: 0.5px solid #f0f0ec;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.sesion-items li::before {
+  content: "—";
+  color: var(--naranja);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.sesion-precio {
+  display: inline-block;
+  background: var(--negro);
+  color: var(--blanco);
+  font-size: 20px;
+  font-weight: 800;
+  padding: 8px 20px;
+  border-radius: 99px;
+}
+
+/* ── FORMULARIO ── */
+.formulario-wrap {
+  background: var(--negro);
+  padding: 5rem 1.5rem;
+  color: var(--blanco);
+}
+
+.formulario-inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.formulario-inner .tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--naranja);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.formulario-inner h2 {
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
+}
+
+.formulario-inner .intro {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 2.5rem;
+}
+
+.campo { margin-bottom: 1.25rem; }
+
+.campo label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.4rem;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: 'NewBlack', sans-serif;
+  font-weight: 400;
+  color: var(--blanco);
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus { border-color: var(--naranja); }
+
+.campo textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+
+.campo select option { background: #1a1a1a; }
+
+.sesion-opciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+.sesion-opt {
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+.sesion-opt:hover { border-color: var(--naranja); }
+.sesion-opt.selected { background: var(--naranja); border-color: var(--naranja); color: var(--negro); }
+
+.sesion-opt .opt-nombre {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.sesion-opt .opt-precio {
+  font-size: 11px;
+  font-weight: 300;
+  opacity: 0.75;
+}
+
+.enviar-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 16px;
+  background: var(--naranja);
+  color: var(--negro);
+  border: none;
+  border-radius: 99px;
+  font-family: 'NewBlack', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.enviar-btn:hover:not(:disabled) { opacity: 0.85; }
+.enviar-btn:disabled { opacity: 0.4; cursor: default; }
+
+.form-nota {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  margin-top: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ── PIE ── */
+.pie {
+  background: var(--negro);
+  border-top: 1px solid #1a1a1a;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+}
+
+.pie img { width: 120px; margin: 0 auto 1.5rem; display: block; }
+
+.pie-contacto {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 0.4rem;
+}
+
+.pie-contacto a {
+  color: var(--naranja);
+  text-decoration: none;
+}
+
+/* SUCCESS */
+.success-screen {
+  display: none;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--blanco);
+}
+
+.success-icon {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--naranja);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 24px;
+  color: var(--negro);
+  font-weight: 800;
+}
+
+.success-title {
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.success-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 560px) {
+  .seccion-paula { grid-template-columns: 1fr; }
+  .foto-paula { aspect-ratio: 4/3; }
+  .sesion-opciones { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="logo.png" alt="Pecas y Vibrisas" class="hero-logo">
+  <span class="hero-tag">Fotografía y vídeo · Asturias</span>
+  <h1 class="hero-title">Vuestra historia,<br><span>con sensibilidad animal</span></h1>
+  <p class="hero-sub">Sesiones documentales para retratar el vínculo real entre vosotros y vuestro animal. Sin poses forzadas, sin estrés.</p>
+  <a href="#contacto" class="hero-cta">Quiero saber más</a>
+  <div class="foto-hero">📷 foto aquí — portada impactante con animal</div>
+</section>
+
+<!-- PAULA -->
+<section class="seccion-paula">
+  <div class="foto-paula">📷 foto tuya aquí</div>
+  <div class="paula-texto">
+    <span class="tag">Hola, soy Paula</span>
+    <h2>La persona detrás de Pecas y Vibrisas</h2>
+    <p>Fotógrafa y videógrafa especializada en retratar el vínculo entre los animales y sus humanos. Con formación audiovisual y más de diez años tras una cámara, de mis pasiones nació Pecas y Vibrisas.<br><br>Técnica, creatividad y empatía para contar historias, priorizando siempre el bienestar de los animales.</p>
+  </div>
+</section>
+
+<!-- CÓMO TRABAJO -->
+<section class="como-trabajo">
+  <h2>¿Cómo trabajo?</h2>
+  <p class="subtitulo">Adaptándome a vuestros ritmos</p>
+  <div class="como-grid">
+    <div class="como-item">
+      <div class="como-num">01</div>
+      <h3>Estilo documental</h3>
+      <p>Sin poses forzadas ni momentos de estrés. Capturo lo que pasa de verdad.</p>
+    </div>
+    <div class="como-item">
+      <div class="como-num">02</div>
+      <h3>El protagonista manda</h3>
+      <p>Vuestro animal marca el ritmo en todo momento. Yo me adapto a él.</p>
+    </div>
+    <div class="como-item">
+      <div class="como-num">03</div>
+      <h3>Momentos reales</h3>
+      <p>Mi prioridad es retratar vuestro vínculo tal como es, no como debería verse.</p>
+    </div>
+  </div>
+  <div class="foto-trabajo">📷 foto aquí — vosotros trabajando en acción</div>
+</section>
+
+<!-- SESIONES -->
+<section class="sesiones">
+  <span class="tag">Lo que ofrezco</span>
+  <h2>Las sesiones</h2>
+  <p class="intro">Lo que cambia entre una sesión y otra no es cómo se vive, sino la forma de conservar el recuerdo.</p>
+
+  <!-- PECAS -->
+  <div class="sesion-card">
+    <div class="sesion-foto naranja">📷 foto sesión Pecas aquí</div>
+    <div class="sesion-body">
+      <p class="sesion-nombre">Sesión Pecas</p>
+      <p class="sesion-tagline">Un rato de calma con tu animal, sin poses ni presión. Un recuerdo bonito y sencillo.</p>
+      <ul class="sesion-items">
+        <li>10 fotografías editadas en digital</li>
+        <li>Galería privada para ver y elegir vuestras fotos</li>
+        <li>1 copia impresa en papel</li>
+        <li>Sesión adaptada a vuestro ritmo, en torno a una hora</li>
+        <li>En casa o en exterior, localización a elegir</li>
+        <li>Preparación y acompañamiento previo</li>
+      </ul>
+      <span class="sesion-precio">180€</span>
+    </div>
+  </div>
+
+  <!-- VIBRISAS -->
+  <div class="sesion-card">
+    <div class="sesion-foto verde">📷 foto sesión Vibrisas aquí</div>
+    <div class="sesion-body">
+      <p class="sesion-nombre">Sesión Vibrisas</p>
+      <p class="sesion-tagline">Más momentos, más detalles. La opción más elegida para capturar vuestra historia.</p>
+      <ul class="sesion-items">
+        <li>20 fotografías editadas en digital</li>
+        <li>Galería privada para ver y elegir vuestras fotos</li>
+        <li>3 copias impresas en papel</li>
+        <li>Sesión adaptada a vuestro ritmo, en torno a una hora</li>
+        <li>En casa o en exterior, localización a elegir</li>
+        <li>Preparación y acompañamiento previo</li>
+      </ul>
+      <span class="sesion-precio">240€</span>
+    </div>
+  </div>
+
+  <!-- PECAS Y VIBRISAS -->
+  <div class="sesion-card">
+    <div class="sesion-foto lila">📷 foto sesión Pecas y Vibrisas aquí</div>
+    <div class="sesion-body">
+      <p class="sesion-nombre">Sesión Pecas y Vibrisas</p>
+      <p class="sesion-tagline">La experiencia completa para no perder nada. Todo lo que sois, en imágenes y en movimiento.</p>
+      <ul class="sesion-items">
+        <li>Vídeo emocional de recuerdo</li>
+        <li>Todas las fotografías editadas en digital</li>
+        <li>5 copias impresas en papel</li>
+        <li>Galería privada para acceder a toda la colección</li>
+        <li>Sesión adaptada a vuestro ritmo, en torno a una hora</li>
+        <li>En casa o en exterior, incluso en ambas localizaciones</li>
+        <li>Preparación y acompañamiento previo</li>
+      </ul>
+      <span class="sesion-precio">310€</span>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="formulario-wrap" id="contacto">
+  <div class="formulario-inner">
+    <div id="form-content">
+      <span class="tag">Hablemos</span>
+      <h2>Si te imaginas en estas imágenes, escríbeme</h2>
+      <p class="intro">Cuéntame un poco sobre vosotros y te respondo en menos de 24h.</p>
+
+      <div class="campo">
+        <label>Tu nombre</label>
+        <input type="text" id="nombre" placeholder="¿Cómo te llamas?">
+      </div>
+
+      <div class="campo">
+        <label>Tu email</label>
+        <input type="email" id="email" placeholder="Para poder responderte">
+      </div>
+
+      <div class="campo">
+        <label>¿Qué sesión te interesa?</label>
+        <div class="sesion-opciones" id="sesion-opts">
+          <div class="sesion-opt" data-sesion="Sesión Pecas (180€)">
+            <span class="opt-nombre">Pecas</span>
+            <span class="opt-precio">180€</span>
+          </div>
+          <div class="sesion-opt" data-sesion="Sesión Vibrisas (240€)">
+            <span class="opt-nombre">Vibrisas</span>
+            <span class="opt-precio">240€</span>
+          </div>
+          <div class="sesion-opt" data-sesion="Sesión Pecas y Vibrisas (310€)">
+            <span class="opt-nombre">Pecas y Vibrisas</span>
+            <span class="opt-precio">310€</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Cuéntame sobre vosotros</label>
+        <textarea id="mensaje" placeholder="Nombre de tu animal, especie, edad... y lo que quieras contarme sobre vuestro vínculo o lo que buscas en la sesión."></textarea>
+      </div>
+
+      <button class="enviar-btn" id="enviar-btn" disabled>Escribirle a Paula</button>
+      <p class="form-nota">Te respondo en menos de 24h · hola@pecasyvibrisas.com</p>
+    </div>
+
+    <div class="success-screen" id="success-screen">
+      <div class="success-icon">✓</div>
+      <p class="success-title">¡Recibido!</p>
+      <p class="success-text">Gracias por escribirme.<br>Te respondo en menos de 24h para contarte todo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PIE -->
+<footer class="pie">
+  <img src="logo.png" alt="Pecas y Vibrisas">
+  <p class="pie-contacto"><a href="mailto:hola@pecasyvibrisas.com">hola@pecasyvibrisas.com</a></p>
+  <p class="pie-contacto"><a href="tel:+34711212240">+34 711 212 240</a></p>
+  <p class="pie-contacto" style="margin-top:0.75rem;font-size:12px;opacity:0.35;">Gijón · Asturias</p>
+</footer>
+
+<script>
+let selectedSesion = null;
+
+document.getElementById('sesion-opts').addEventListener('click', e => {
+  const opt = e.target.closest('.sesion-opt');
+  if (!opt) return;
+  document.querySelectorAll('.sesion-opt').forEach(s => s.classList.remove('selected'));
+  opt.classList.add('selected');
+  selectedSesion = opt.dataset.sesion;
+  checkForm();
+});
+
+['nombre','email','mensaje'].forEach(id => {
+  document.getElementById(id).addEventListener('input', checkForm);
+});
+
+function checkForm() {
+  const nombre = document.getElementById('nombre').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const mensaje = document.getElementById('mensaje').value.trim();
+  document.getElementById('enviar-btn').disabled = !(nombre && email && mensaje && selectedSesion);
+}
+
+document.getElementById('enviar-btn').addEventListener('click', async () => {
+  const nombre = document.getElementById('nombre').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const mensaje = document.getElementById('mensaje').value.trim();
+  if (!nombre || !email || !mensaje || !selectedSesion) return;
+
+  const btn = document.getElementById('enviar-btn');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  try {
+    const res = await fetch('https://formspree.io/f/meevkyzk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ nombre, email, sesion: selectedSesion, mensaje })
+    });
+
+    if (res.ok) {
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('success-screen').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Escribirle a Paula';
+      alert('Algo fue mal. Por favor inténtalo de nuevo.');
+    }
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = 'Escribirle a Paula';
+    alert('Error de conexión. Por favor inténtalo de nuevo.');
+  }
+});
+</script>
+</body>
+</html>
